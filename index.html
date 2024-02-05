@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web3.js Example</title>
+    <!-- Include Web3.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.6.0/dist/web3.min.js"></script>
+  </head>
+  <body>
+    <h1>Web3.js Example</h1>
+
+    <script>
+      // // Check if Web3 is injected by the browser (e.g., MetaMask)
+      // if (typeof web3 !== 'undefined') {
+      //     web3 = new Web3(web3.currentProvider);
+      //     console.log("Web3 is connected to the provider:", web3.currentProvider);
+      // } else {
+      //     // Handle the case where Web3 is not present (not connected to MetaMask or other Ethereum provider)
+      //     console.error("Web3 is not detected. Please install MetaMask or another Ethereum provider.");
+      // }
+
+      // // Use Web3.js to get the latest block number
+      // web3.eth.getBlockNumber()
+      //     .then(blockNumber => {
+      //         console.log("Latest Block Number:", blockNumber);
+      //     })
+      //     .catch(error => {
+      //         console.error("Error fetching block number:", error);
+      //     });
+      
+    
+    //Connect Metamask
+      // Check if the user's browser has injected a Web3 provider
+      if (typeof window.ethereum !== "undefined") {
+        // Use the injected provider
+        const web3 = new Web3(window.ethereum);
+
+        // Request account access (required by some Ethereum providers)
+        window.ethereum
+          .enable()
+          .then((accounts) => {
+            // Do something with the user's Ethereum accounts
+            console.log("Connected accounts:", accounts);
+          })
+          .catch((error) =>
+            console.error("Error enabling account access:", error)
+          );
+      } else {
+        // Fallback: Use a default provider (e.g., connecting to a local node)
+        const web3 = new Web3(
+          new Web3.providers.HttpProvider("https://eth-mainnet.alchemyapi.io/v2/MSNZLs5d-FRkHur6uHS8ljH03aGFVSNY")
+        );
+        console.warn(
+          "No Ethereum provider detected. Using a default provider."
+        );
+      }
+
+    </script>
+  </body>
+</html>
