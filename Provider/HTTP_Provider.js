@@ -1,7 +1,10 @@
 //Remote Node Provider
 var Web3 = require("web3");
+require('dotenv').config();
+const ALCHEMY_API = process.env.ALCHEMY_API;
+
 var web3 = new Web3(
-  "https://eth-mainnet.alchemyapi.io/v2/MSNZLs5d-FRkHur6uHS8ljH03aGFVSNY"
+  `https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_API}`
 );
 web3.eth.net.isListening()
   .then(() => console.log('Connected to Ethereum node'))
@@ -15,7 +18,3 @@ web3.eth.getBalance(address, (err, wei) => {
     console.log("Balance = ",balance);
   });
 
-//---------Infura-----------
-// const Web3 = require('web3');
-// const rpcURL = "https://mainnet.infura.io/035d3dcfa0d94a3c9a1f9f44e4bb8fef";
-// const web3 = new Web3(rpcURL);
