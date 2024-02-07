@@ -1,6 +1,6 @@
-import { Web3, WebSocketProvider } from 'web3';
-require('dotenv').config();
-const ALCHEMY_API = process.env.ALCHEMY_API;
-const web3 = new Web3(`https://eth-mainnet.alchemyapi.io/v2/${ALCHEMY_API}`);
-await web3.eth.getBlockNumber();	
+const Web3 = require("web3");
+const url = 'HTTP://127.0.0.1:7545';
+const wsProvider = new Web3.providers.WebsocketProvider(url);
+const web3 = new Web3(wsProvider);
+web3.eth.getBlockNumber().then(console.log);
 
