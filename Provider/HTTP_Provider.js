@@ -12,7 +12,7 @@ web3.eth.net.isListening()
 console.log("Web3 Provider = ", web3.providers);
 console.log("Web3 given provider = ", web3.eth.givenProvider);
 console.log("Web3 Current Provider = ", web3.eth.currentProvider);
-const address = "0x00000000219ab540356cBB839Cbe05303d7705Fa";
+const address = "0x6e6e15A67380c8360FCC688428BEd357A9f0f702";
 web3.eth.getBalance(address, (err, wei) => {
     balance = web3.utils.fromWei(wei, 'ether');
     console.log("Balance = ",balance);

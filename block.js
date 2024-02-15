@@ -8,4 +8,5 @@ web3.eth.getBlock("latest").then((block) => {
   console.log("Block Hash Value = ", block.hash);
   console.log("Block Number = ", block.number);
 });
+
 web3.eth.getBlockTransactionCount("latest").then(console.log);

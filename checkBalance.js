@@ -1,7 +1,7 @@
 const Web3 = require("web3");
 const rpcURL = "https://eth-mainnet.alchemyapi.io/v2/MSNZLs5d-FRkHur6uHS8ljH03aGFVSNY";
 const web3 = new Web3(rpcURL);
-const address = "0x00000000219ab540356cBB839Cbe05303d7705Fa";
+const address = "0x6e6e15A67380c8360FCC688428BEd357A9f0f702";
 
 // Check Connection to Ethereum Node
 web3.eth.net
